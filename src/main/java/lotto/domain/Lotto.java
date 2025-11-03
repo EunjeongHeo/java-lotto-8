@@ -17,6 +17,15 @@ public class Lotto {
         this.numbers = numbers;
     }
 
+    public List<Integer> getNumbers() {
+        return List.copyOf(numbers);
+    }
+
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
+
     private void validate(List<Integer> numbers) {
         validateSize(numbers);
         validateDuplicate(numbers);
@@ -33,10 +42,5 @@ public class Lotto {
         if (uniqueCount != numbers.size()) {
             throw new InvalidLottoNumbersException(INVALID_LOTTO_DUPLICATE_MESSAGE);
         }
-    }
-
-    @Override
-    public String toString() {
-        return numbers.toString();
     }
 }

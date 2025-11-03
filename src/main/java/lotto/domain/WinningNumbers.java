@@ -13,7 +13,6 @@ public class WinningNumbers {
     private static final String ERROR_NUMBER_OUT_OF_RANGE = String.format("로또 번호는 %d부터 %d 사이의 숫자여야 합니다.",
             MIN_NUMBER, MAX_NUMBER);
 
-
     private final Lotto winningLotto;
     private final int bonusNumber;
 
@@ -24,6 +23,15 @@ public class WinningNumbers {
 
         this.winningLotto = new Lotto(numbers);
         this.bonusNumber = bonusNumber;
+    }
+
+    public Rank match(Lotto lotto) {
+        int matchCount = (int) lotto.getNumbers().stream()
+                .filter(this::contains)
+                .count();
+
+        boolean bonusMatched = containsBonus(lotto);
+        return Rank.of(matchCount, bonusMatched);
     }
 
     private void validateRange(List<Integer> numbers) {
@@ -41,4 +49,12 @@ public class WinningNumbers {
         }
     }
 
+
+    private boolean contains(int number) {
+        return winningLotto.getNumbers().contains(number);
+    }
+
+    private boolean containsBonus(Lotto lotto) {
+        return lotto.getNumbers().contains(bonusNumber);
+    }
 }

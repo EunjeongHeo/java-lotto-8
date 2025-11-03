@@ -30,6 +30,7 @@ public class InputView {
     }
 
     public static int inputBonusNumber() {
+        System.out.println();
         System.out.println(MESSAGE_BONUS_NUMBER_INPUT);
         String input = Console.readLine();
         return parseBonusNumber(input);

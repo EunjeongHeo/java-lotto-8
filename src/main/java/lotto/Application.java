@@ -4,6 +4,7 @@ import java.util.List;
 import lotto.domain.Lotto;
 import lotto.domain.LottoMachine;
 import lotto.domain.LottoResult;
+import lotto.domain.ProfitCalculator;
 import lotto.domain.WinningNumbers;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -21,6 +22,9 @@ public class Application {
 
         LottoResult result = new LottoResult(lottos, winningNumbers);
         OutputView.printStatistics(result);
+
+        ProfitCalculator calculator = new ProfitCalculator(result.totalPrize(), amount);
+        OutputView.printProfitRate(calculator);
     }
 
     private static List<Lotto> generateLottos(int amount) {

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import lotto.domain.Lotto;
 import lotto.domain.LottoResult;
+import lotto.domain.ProfitCalculator;
 import lotto.domain.Rank;
 
 public class OutputView {
@@ -34,5 +35,9 @@ public class OutputView {
                     int count = results.getOrDefault(rank, 0);
                     System.out.println(rank.message() + " - " + count + "개");
                 });
+    }
+
+    public static void printProfitRate(ProfitCalculator calculator) {
+        System.out.println(calculator.formattedRate());
     }
 }

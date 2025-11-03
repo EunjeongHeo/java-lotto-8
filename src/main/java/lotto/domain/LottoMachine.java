@@ -12,10 +12,10 @@ public class LottoMachine {
     private static final int MIN_AMOUNT = 1000;
     private static final int MAX_AMOUNT = 100_000_000;
 
-    private static final String ERROR_INVALID_RANGE =
-            String.format("구입 금액은 %,d원 이상 %,d원 이하여야 합니다.", MIN_AMOUNT, MAX_AMOUNT);
-    private static final String ERROR_NOT_DIVISIBLE_BY_UNIT =
-            String.format("구입 금액은 %,d원 단위여야 합니다.", LOTTO_PRICE);
+    private static final String ERROR_INVALID_RANGE = String.format("구입 금액은 %,d원 이상 %,d원 이하여야 합니다.",
+            MIN_AMOUNT, MAX_AMOUNT);
+    private static final String ERROR_NOT_DIVISIBLE_BY_UNIT = String.format("구입 금액은 %,d원 단위여야 합니다.",
+            LOTTO_PRICE);
 
     public List<Lotto> purchase(int userPayment) {
         validatePayment(userPayment);

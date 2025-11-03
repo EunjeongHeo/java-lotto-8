@@ -1,7 +1,26 @@
 package lotto;
 
+import java.util.List;
+
+import lotto.domain.Lotto;
+import lotto.domain.LottoMachine;
+import lotto.view.InputView;
+import lotto.view.OutputView;
+
 public class Application {
+
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        int amount = InputView.inputPurchaseAmount();
+        List<Lotto> lottos = generateLottos(amount);
+        displayLottoPurchased(lottos);
+    }
+
+    private static List<Lotto> generateLottos(int amount) {
+        LottoMachine lottoMachine = new LottoMachine();
+        return lottoMachine.purchase(amount);
+    }
+
+    private static void displayLottoPurchased(List<Lotto> lottos) {
+        OutputView.printLottoPurchased(lottos);
     }
 }

@@ -6,7 +6,7 @@ import lotto.exception.InvalidPurchaseAmountException;
 public class InputView {
 
     private static final String MESSAGE_PURCHASE_AMOUNT_INPUT = "구입금액을 입력해 주세요.";
-    private static final String ERROR_NOT_NUMBER = "[ERROR] 구입 금액은 숫자로만 입력해야 합니다.";
+    private static final String ERROR_NOT_NUMBER = "구입 금액은 숫자로만 입력해야 합니다.";
 
     public static int inputPurchaseAmount() {
         System.out.println(MESSAGE_PURCHASE_AMOUNT_INPUT);
